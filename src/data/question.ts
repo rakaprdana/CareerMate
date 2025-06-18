@@ -4,158 +4,162 @@ export const questions: Question[] = [
   // Realistic
   {
     id: 1,
-    text: "Saya suka memperbaiki atau membuat sesuatu dengan tangan saya.",
+    text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
     types: ["Realistic"],
   },
-  { id: 2, text: "Saya suka bekerja di luar ruangan.", types: ["Realistic"] },
+  {
+    id: 2,
+    text: "Saya menikmati aktivitas luar ruangan seperti berkebun atau bertani.",
+    types: ["Realistic"],
+  },
   {
     id: 3,
-    text: "Saya suka menggunakan alat atau mesin.",
+    text: "Saya mahir dalam memperbaiki atau merakit sesuatu secara manual.",
     types: ["Realistic"],
   },
   {
     id: 4,
-    text: "Saya lebih suka pekerjaan fisik daripada pekerjaan kantor.",
+    text: "Saya lebih suka pekerjaan fisik daripada pekerjaan kantoran.",
     types: ["Realistic"],
   },
   {
     id: 5,
-    text: "Saya merasa nyaman dengan pekerjaan teknis atau mekanik.",
+    text: "Saya tertarik pada pekerjaan teknis dan praktis.",
     types: ["Realistic"],
   },
 
   // Investigative
   {
     id: 6,
-    text: "Saya tertarik dengan eksperimen ilmiah.",
+    text: "Saya suka memecahkan masalah atau teka-teki yang kompleks.",
     types: ["Investigative"],
   },
   {
     id: 7,
-    text: "Saya suka memecahkan teka-teki atau masalah logika.",
+    text: "Saya tertarik dalam melakukan eksperimen atau riset.",
     types: ["Investigative"],
   },
   {
     id: 8,
-    text: "Saya suka membaca jurnal atau artikel ilmiah.",
+    text: "Saya senang menganalisis data atau informasi.",
     types: ["Investigative"],
   },
   {
     id: 9,
-    text: "Saya ingin memahami cara kerja sesuatu.",
+    text: "Saya menikmati membaca buku ilmiah atau teknologi.",
     types: ["Investigative"],
   },
   {
     id: 10,
-    text: "Saya menikmati menganalisis data atau hasil penelitian.",
+    text: "Saya lebih suka bekerja secara mandiri untuk mencari solusi.",
     types: ["Investigative"],
   },
 
   // Artistic
   {
     id: 11,
-    text: "Saya menikmati membuat seni visual seperti lukisan atau desain.",
+    text: "Saya suka mengekspresikan diri melalui seni atau musik.",
     types: ["Artistic"],
   },
   {
     id: 12,
-    text: "Saya suka menulis cerita, puisi, atau lagu.",
+    text: "Saya merasa nyaman dalam lingkungan yang bebas dan kreatif.",
     types: ["Artistic"],
   },
   {
     id: 13,
-    text: "Saya suka bekerja dalam lingkungan yang fleksibel dan tidak kaku.",
+    text: "Saya menikmati membuat karya seperti lukisan, tulisan, atau desain.",
     types: ["Artistic"],
   },
   {
     id: 14,
-    text: "Saya tertarik pada teater, musik, atau tarian.",
+    text: "Saya tertarik dalam dunia fashion, seni visual, atau drama.",
     types: ["Artistic"],
   },
   {
     id: 15,
-    text: "Saya lebih suka mengekspresikan diri daripada mengikuti aturan kaku.",
+    text: "Saya lebih suka tugas yang tidak terstruktur dan imajinatif.",
     types: ["Artistic"],
   },
 
   // Social
   {
     id: 16,
-    text: "Saya suka membantu orang memecahkan masalah mereka.",
+    text: "Saya suka membantu dan mendengarkan orang lain.",
     types: ["Social"],
   },
   {
     id: 17,
-    text: "Saya tertarik bekerja sebagai guru, konselor, atau pelatih.",
+    text: "Saya tertarik pada pekerjaan mengajar atau membimbing.",
     types: ["Social"],
   },
   {
     id: 18,
-    text: "Saya suka mendengarkan dan memberikan nasihat.",
+    text: "Saya merasa puas saat bekerja dalam tim yang membantu sesama.",
     types: ["Social"],
   },
   {
     id: 19,
-    text: "Saya ingin membuat perubahan sosial dalam masyarakat.",
+    text: "Saya senang merawat orang lain atau menjadi relawan sosial.",
     types: ["Social"],
   },
   {
     id: 20,
-    text: "Saya merasa puas jika bisa berkontribusi untuk orang lain.",
+    text: "Saya pandai memahami emosi atau perasaan orang lain.",
     types: ["Social"],
   },
 
   // Enterprising
   {
     id: 21,
-    text: "Saya suka memimpin tim atau proyek.",
+    text: "Saya suka memimpin atau mengambil keputusan penting.",
     types: ["Enterprising"],
   },
   {
     id: 22,
-    text: "Saya senang menjual ide atau produk kepada orang lain.",
+    text: "Saya tertarik dalam kegiatan bisnis, negosiasi, atau penjualan.",
     types: ["Enterprising"],
   },
   {
     id: 23,
-    text: "Saya percaya diri dalam mengambil keputusan penting.",
+    text: "Saya percaya diri dalam berbicara di depan umum atau mempengaruhi orang lain.",
     types: ["Enterprising"],
   },
   {
     id: 24,
-    text: "Saya menikmati berbicara di depan publik.",
+    text: "Saya suka merancang strategi untuk mencapai target.",
     types: ["Enterprising"],
   },
   {
     id: 25,
-    text: "Saya ingin membangun bisnis atau organisasi sendiri.",
+    text: "Saya lebih suka proyek yang kompetitif dan dinamis.",
     types: ["Enterprising"],
   },
 
   // Conventional
   {
     id: 26,
-    text: "Saya menikmati pekerjaan administratif atau pengarsipan.",
+    text: "Saya suka menyusun data dan membuat laporan yang rapi.",
     types: ["Conventional"],
   },
   {
     id: 27,
-    text: "Saya suka bekerja dengan angka, tabel, atau data.",
-    types: ["Conventional"],
-  },
-  {
-    id: 28,
     text: "Saya merasa nyaman mengikuti aturan dan prosedur.",
     types: ["Conventional"],
   },
   {
+    id: 28,
+    text: "Saya tertarik dalam kegiatan administrasi atau keuangan.",
+    types: ["Conventional"],
+  },
+  {
     id: 29,
-    text: "Saya suka mengatur informasi secara sistematis.",
+    text: "Saya pandai mengorganisir pekerjaan agar efisien.",
     types: ["Conventional"],
   },
   {
     id: 30,
-    text: "Saya senang bekerja di lingkungan yang terstruktur.",
+    text: "Saya lebih suka tugas yang terstruktur dan berulang.",
     types: ["Conventional"],
   },
 ];

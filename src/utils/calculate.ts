@@ -1,10 +1,6 @@
+import type { Answer } from "../interfaces/interface";
 import type { Question } from "../interfaces/interface";
 import type { HollandType } from "../types/hollandcode";
-
-export interface Answer {
-  questionId: number;
-  agree: boolean;
-}
 
 export const calculateScores = (
   answers: Answer[],
@@ -19,16 +15,17 @@ export const calculateScores = (
     Conventional: 0,
   };
 
-  answers.forEach((answer) => {
-    if (answer.agree) {
-      const question = questions.find((q) => q.id === answer.questionId);
+  answers.forEach(({ questionId, agree }) => {
+    if (agree) {
+      const question = questions.find((q) => q.id === questionId);
       if (question) {
         question.types.forEach((type) => {
-          scores[type as HollandType] += 1;
+          scores[type as HollandType]++;
         });
       }
     }
   });
 
+  console.log("Answers:", answers);
   return scores;
 };

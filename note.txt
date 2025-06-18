@@ -1,0 +1,3 @@
+Pada sistem ini, mengambil nilai pertama dalam holland code. 
+Jika R memiliki nilai tertinggi dan nilai I dan A juga tinggi, maka yang diambil nilai R
+JIKA I memiliki nilai tinggi seperti S, E, dan C maka yang diambil nilai I

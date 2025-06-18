@@ -19,6 +19,11 @@ export interface Question {
   types: string[]; // ["Realistic", "Investigative"]
 }
 
+export interface Answer {
+  questionId: number;
+  agree: boolean;
+}
+
 export interface QuestionProps {
   questions: Question[];
   answers: Record<number, boolean>;

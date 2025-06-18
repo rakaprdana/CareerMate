@@ -1,25 +1,18 @@
 import React from "react";
 import type { HollandType } from "../../types/hollandcode";
+import { careerSuggestions } from "../../data/carier";
+import { descriptions } from "../../data/descriptions";
 
 interface Props {
   scores: Record<HollandType, number>;
 }
 
-const descriptions: Record<HollandType, string> = {
-  Realistic:
-    "Anda menyukai aktivitas fisik, bekerja dengan tangan, dan alat mekanis.",
-  Investigative: "Anda senang berpikir, meneliti, dan memecahkan masalah.",
-  Artistic: "Anda suka mengekspresikan diri melalui seni dan ide kreatif.",
-  Social:
-    "Anda peduli terhadap orang lain dan menikmati membantu serta mengajar.",
-  Enterprising:
-    "Anda suka memimpin, memengaruhi, dan mengambil risiko dalam bisnis.",
-  Conventional: "Anda menyukai keteraturan, data, dan prosedur sistematis.",
-};
-
 export const ResultPage: React.FC<Props> = ({ scores }) => {
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const topThree = sorted.slice(0, 3) as [HollandType, number][];
+  const [topType] = topThree;
+
+  const recommendedCareer = careerSuggestions[topType[0]].slice(0, 3);
 
   return (
     <div className="space-y-4">
@@ -35,9 +28,18 @@ export const ResultPage: React.FC<Props> = ({ scores }) => {
         <h3 className="font-medium">Interpretasi:</h3>
         <p>
           Kode Holland Anda adalah:{" "}
-          <strong>{topThree.map(([t]) => t[0]).join("")}</strong>. Ini
-          menunjukkan kecenderungan Anda terhadap karier yang melibatkan aspek{" "}
+          <strong>{topThree.map(([t]) => t).join(" ")}</strong>. Ini menunjukkan
+          kecenderungan Anda terhadap karier yang melibatkan aspek{" "}
           {topThree.map(([t]) => t.toLowerCase()).join(", ")}.
+        </p>
+      </div>
+
+      <div className="mt-4 p-4 bg-green-100 rounded-xl">
+        <h3 className="font-medium">Rekomendasi Karier Utama:</h3>
+        <p>
+          Berdasarkan hasil tertinggi Anda (<strong>{topType[0]}</strong>),
+          karier yang direkomendasikan adalah:{" "}
+          <strong>{recommendedCareer}</strong>.
         </p>
       </div>
     </div>
