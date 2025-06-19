@@ -21,7 +21,8 @@ export interface Question {
 
 export interface Answer {
   questionId: number;
-  agree: boolean;
+  // agree: boolean;
+  confidence: number;
 }
 
 export interface QuestionProps {

@@ -15,17 +15,20 @@ export const calculateScores = (
     Conventional: 0,
   };
 
-  answers.forEach(({ questionId, agree }) => {
-    if (agree) {
-      const question = questions.find((q) => q.id === questionId);
-      if (question) {
-        question.types.forEach((type) => {
-          scores[type as HollandType]++;
-        });
-      }
+  answers.forEach(({ questionId, confidence }) => {
+    const question = questions.find((q) => q.id === questionId);
+    if (question) {
+      question.types.forEach((type) => {
+        scores[type as HollandType] += confidence;
+      });
     }
   });
+  //pembulatan
+  Object.keys(scores).forEach((key) => {
+    const t = key as HollandType;
+    scores[t] = Math.round(scores[t] * 10) / 10;
+  });
 
-  console.log("Answers:", answers);
+  console.log("Data: ", answers);
   return scores;
 };

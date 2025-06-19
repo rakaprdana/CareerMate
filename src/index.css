@@ -1,1 +1,10 @@
 @import "tailwindcss";
+@theme {
+  --color-background: #dbeafe;
+  --color-foreBackground: #eff6ff;
+  --color-borderColor: #bedbff;
+  --color-textBold: #1c398e;
+  --color-textSemiBold: #193cb8;
+  --color-textMedium: #1447e6;
+  --color-selected: #00c951;
+}

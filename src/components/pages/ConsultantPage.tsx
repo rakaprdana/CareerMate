@@ -20,10 +20,10 @@ export const ConsultantPage: React.FC = () => {
     startIdx + QUESTIONS_PER_PAGE
   );
 
-  const handleAnswer = (questionId: number, agree: boolean) => {
+  const handleAnswer = (questionId: number, confidence: number) => {
     setAnswers((prev) => {
       const filtered = prev.filter((a) => a.questionId !== questionId);
-      return [...filtered, { questionId, agree }];
+      return [...filtered, { questionId, confidence }];
     });
   };
 
@@ -36,22 +36,25 @@ export const ConsultantPage: React.FC = () => {
   };
 
   const scores = calculateScores(answers, questions);
-
+  const handleNext = () => {
+    setCurrentPage((p) => p + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
-    <div className="p-6 max-w-2xl mx-auto">
+    <div className="p-4 m-4">
       {!showResult ? (
         <>
-          <NavigationButtons
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onNext={() => setCurrentPage((p) => p + 1)}
-            onPrev={() => setCurrentPage((p) => p - 1)}
-            onSubmit={handleFinish}
-          />
           <QuestionPage
             questions={currentQuestions}
             answers={answers}
             onAnswer={handleAnswer}
+          />
+          <NavigationButtons
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onNext={handleNext}
+            onPrev={() => setCurrentPage((p) => p - 1)}
+            onSubmit={handleFinish}
           />
         </>
       ) : (

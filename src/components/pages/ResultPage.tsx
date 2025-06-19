@@ -1,7 +1,9 @@
 import React from "react";
 import type { HollandType } from "../../types/hollandcode";
-import { careerSuggestions } from "../../data/carier";
-import { descriptions } from "../../data/descriptions";
+import { ResultChart } from "../elements/chart/result-chart";
+import { TopTypesList } from "../elements/chart/top-type";
+import { InterpretationBox } from "../elements/chart/interpretation";
+import { CareerSuggestionBox } from "../elements/chart/carier-result";
 
 interface Props {
   scores: Record<HollandType, number>;
@@ -12,36 +14,19 @@ export const ResultPage: React.FC<Props> = ({ scores }) => {
   const topThree = sorted.slice(0, 3) as [HollandType, number][];
   const [topType] = topThree;
 
-  const recommendedCareer = careerSuggestions[topType[0]].slice(0, 3);
-
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Hasil Rekomendasi Kepribadian</h2>
-      <ul className="list-disc ml-6">
-        {topThree.map(([type, score]) => (
-          <li key={type}>
-            <strong>{type}</strong> ({score}) – {descriptions[type]}
-          </li>
-        ))}
-      </ul>
-      <div className="mt-4 p-4 bg-gray-100 rounded-xl">
-        <h3 className="font-medium">Interpretasi:</h3>
-        <p>
-          Kode Holland Anda adalah:{" "}
-          <strong>{topThree.map(([t]) => t).join(" ")}</strong>. Ini menunjukkan
-          kecenderungan Anda terhadap karier yang melibatkan aspek{" "}
-          {topThree.map(([t]) => t.toLowerCase()).join(", ")}.
-        </p>
-      </div>
-
-      <div className="mt-4 p-4 bg-green-100 rounded-xl">
-        <h3 className="font-medium">Rekomendasi Karier Utama:</h3>
-        <p>
-          Berdasarkan hasil tertinggi Anda (<strong>{topType[0]}</strong>),
-          karier yang direkomendasikan adalah:{" "}
-          <strong>{recommendedCareer}</strong>.
-        </p>
-      </div>
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-8 px-4 lg:px-8">
+      <section className="w-full lg:w-1/2 space-y-6">
+        <h2 className="text-2xl font-bold text-textMedium">
+          Hasil Rekomendasi Kepribadian
+        </h2>
+        <ResultChart scores={scores} />
+      </section>
+      <section className="md:pt-16 w-full lg:w-1/2 space-y-6">
+        <TopTypesList topThree={topThree} />
+        <InterpretationBox topThree={topThree} />
+        <CareerSuggestionBox topType={topType[0]} />
+      </section>
     </div>
   );
 };
