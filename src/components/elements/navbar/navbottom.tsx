@@ -1,4 +1,4 @@
-import type { NavProps } from "../../interfaces/interface";
+import type { NavProps } from "../../../interfaces/interface";
 
 export const NavigationButtons: React.FC<NavProps> = ({
   currentPage,
@@ -9,7 +9,7 @@ export const NavigationButtons: React.FC<NavProps> = ({
 }) => (
   <div className="flex justify-end space-x-4 mt-4">
     <button
-      className="bg-blue-600 text-white px-4 py-2 rounded-xl"
+      className="bg-buttonPri text-white px-4 py-2 rounded-xl"
       disabled={currentPage === 0}
       onClick={onPrev}
     >
@@ -18,7 +18,7 @@ export const NavigationButtons: React.FC<NavProps> = ({
     {currentPage < totalPages - 1 ? (
       <button
         onClick={onNext}
-        className="bg-blue-600 text-white px-4 py-2 rounded-xl"
+        className="bg-buttonPri text-white px-4 py-2 rounded-xl"
       >
         Berikutnya
       </button>

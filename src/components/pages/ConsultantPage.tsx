@@ -3,8 +3,8 @@ import { QuestionPage } from "../pages/QuestionPage";
 import { ResultPage } from "../pages/ResultPage";
 import { calculateScores } from "../../utils/calculate";
 import type { Answer } from "../../interfaces/interface";
-import { questions } from "../../data/question"; // Pastikan kamu punya data soal
-import { NavigationButtons } from "../elements/navbar";
+import { questions } from "../../data/question";
+import { NavigationButtons } from "../elements/navbar/navbottom";
 
 const QUESTIONS_PER_PAGE = 5;
 
