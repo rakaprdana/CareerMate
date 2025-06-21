@@ -4,13 +4,14 @@ import Career from "../../../public/image/undraw_career-progress_vfq5.svg";
 import { About } from "./layout/landing/about";
 import { useState } from "react";
 import { AnnouncementModal } from "../elements/modal/announcement";
+import { DefineRIASEC } from "./layout/riasec";
 
 export const LandingPage = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       <NavTop />
-      <main className="flex flex-wrap justify-center md:justify-between items-center gap-8 px-4 md:px-8 pt-40">
+      <main className="bg-foreBackground flex flex-wrap justify-center md:justify-between items-center gap-8 px-4 md:px-8 pt-48">
         <section className="p-4 w-full md:w-[50%] text-center md:text-left">
           <div className="mb-4 space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold text-textBold">
@@ -33,6 +34,7 @@ export const LandingPage = () => {
       </main>
       {showModal && <AnnouncementModal onClose={() => setShowModal(false)} />}
       <About />
+      <DefineRIASEC />
     </>
   );
 };
