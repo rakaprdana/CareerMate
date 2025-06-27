@@ -29,6 +29,5 @@ export const calculateScores = (
     scores[t] = Math.round(scores[t] * 10) / 10;
   });
 
-  console.log("Data: ", answers);
   return scores;
 };

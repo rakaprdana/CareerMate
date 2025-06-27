@@ -1,5 +1,6 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import type { Question, Answer } from "../../interfaces/interface";
+import { getQuestion } from "../api/api";
 
 interface Props {
   questions: Question[];
@@ -12,6 +13,8 @@ export const QuestionPage: React.FC<Props> = ({
   answers,
   onAnswer,
 }) => {
+  const [question, setQuestion] = useState<Question[]>([]);
+
   const choices = [
     { label: "Tidak Tahu", value: 0 },
     { label: "Tidak Yakin", value: 0.2 },
@@ -20,10 +23,20 @@ export const QuestionPage: React.FC<Props> = ({
     { label: "Cukup Yakin", value: 0.8 },
     { label: "Sangat Yakin", value: 1 },
   ];
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setQuestion(await getQuestion());
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <main className="flex flex-col items-center space-y-6 px-4 md:px-8">
-      {questions.map((q) => {
+      {question.map((q) => {
         const currentAnswer = answers.find((a) => a.questionId === q.id);
 
         return (
