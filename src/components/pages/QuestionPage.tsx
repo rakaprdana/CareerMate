@@ -1,5 +1,4 @@
 import type { Question, Answer } from "../../interfaces/interface";
-import { GetQuestion } from "../api/hooks/usePaginatedQuestions";
 
 interface Props {
   questions: Question[];
@@ -7,7 +6,11 @@ interface Props {
   onAnswer: (questionId: number, confidence: number) => void;
 }
 
-export const QuestionPage: React.FC<Props> = ({ answers, onAnswer }) => {
+export const QuestionPage: React.FC<Props> = ({
+  questions,
+  answers,
+  onAnswer,
+}) => {
   const choices = [
     { label: "Tidak Tahu", value: 0 },
     { label: "Tidak Yakin", value: 0.2 },
@@ -16,44 +19,42 @@ export const QuestionPage: React.FC<Props> = ({ answers, onAnswer }) => {
     { label: "Cukup Yakin", value: 0.8 },
     { label: "Sangat Yakin", value: 1 },
   ];
-  const question = GetQuestion();
+
   return (
     <main className="flex flex-col items-center space-y-6 px-4 md:px-8">
-      {question.length === 0 ? (
+      {questions.length === 0 ? (
         <p className="text-center text-textMedium text-lg">
           Tidak ada pertanyaan
         </p>
       ) : (
-        question.map((q) => {
+        questions.map((q) => {
           const currentAnswer = answers.find((a) => a.questionId === q.id);
           return (
             <div
               key={q.id}
               className="flex flex-col md:flex-row md:flex-wrap items-start md:items-center justify-between gap-4 p-6 border border-borderColor rounded-2xl bg-foreBackground w-full max-w-5xl shadow-sm"
             >
-              {/* Pertanyaan */}
-              <p className=" text-base md:text-lg font-medium text-textBold w-full md:w-1/3 min-w-0 break-words">
+              <p className="text-base md:text-lg font-medium text-textBold w-full md:w-1/3 min-w-0 break-words">
                 {q.text}
               </p>
-              {/* Pilihan Jawaban */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 w-full md:w-[60%]">
                 {choices.map((choice) => {
                   const selected = currentAnswer?.confidence === choice.value;
                   return (
                     <label
                       key={choice.value}
-                      className={` flex items-center justify-center  cursor-pointer rounded-xl border px-2 py-2 text-center font-medium transition w-full
-                ${
-                  selected
-                    ? "bg-selected text-white border-selected"
-                    : "bg-white text-textMedium border-borderColor hover:bg-background"
-                }`}
+                      className={`flex items-center justify-center cursor-pointer rounded-xl border px-2 py-2 text-center font-medium transition w-full
+                        ${
+                          selected
+                            ? "bg-selected text-white border-selected"
+                            : "bg-white text-textMedium border-borderColor hover:bg-background"
+                        }`}
                     >
                       <input
                         type="radio"
                         name={`q-${q.id}`}
                         value={choice.value}
-                        className="hidden "
+                        className="hidden"
                         checked={selected}
                         onChange={() => onAnswer(q.id, choice.value)}
                       />

@@ -6,6 +6,7 @@ export const calculateScores = (
   answers: Answer[],
   questions: Question[]
 ): Record<HollandType, number> => {
+  // Inisialisasi semua skor ke 0
   const scores: Record<HollandType, number> = {
     Realistic: 0,
     Investigative: 0,
@@ -15,19 +16,27 @@ export const calculateScores = (
     Conventional: 0,
   };
 
+  // Buat Map untuk lookup cepat
+  const questionMap = new Map<number, Question>();
+  questions.forEach((q) => questionMap.set(q.id, q));
+
+  // Proses setiap jawaban
   answers.forEach(({ questionId, confidence }) => {
-    const question = questions.find((q) => q.id === questionId);
-    if (question) {
+    const question = questionMap.get(questionId);
+
+    // Validasi aman
+    if (question && Array.isArray(question.types)) {
       question.types.forEach((type) => {
         scores[type as HollandType] += confidence;
       });
     }
   });
-  //pembulatan
-  Object.keys(scores).forEach((key) => {
-    const t = key as HollandType;
-    scores[t] = Math.round(scores[t] * 10) / 10;
+
+  // Pembulatan ke 1 angka desimal
+  (Object.keys(scores) as HollandType[]).forEach((key) => {
+    scores[key] = Math.round(scores[key] * 10) / 10;
   });
 
+  console.log(answers);
   return scores;
 };

@@ -3,9 +3,9 @@ import { QuestionPage } from "../pages/QuestionPage";
 import { ResultPage } from "../pages/ResultPage";
 import { calculateScores } from "../../utils/calculate";
 import type { Answer } from "../../interfaces/interface";
-import { questions } from "../../data/question";
 import { NavigationButtons } from "../elements/navbar/navbottom";
 import { NavTop } from "../elements/navbar/navtop";
+import { useQuestions } from "../api/hooks/useQuestion";
 
 const QUESTIONS_PER_PAGE = 5;
 
@@ -13,6 +13,7 @@ export const ConsultantPage: React.FC = () => {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [showResult, setShowResult] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const { questions, loading } = useQuestions();
 
   const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE);
   const startIdx = currentPage * QUESTIONS_PER_PAGE;
@@ -36,16 +37,20 @@ export const ConsultantPage: React.FC = () => {
     }
   };
 
-  const scores = calculateScores(answers, questions);
   const handleNext = () => {
     setCurrentPage((p) => p + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const scores = calculateScores(answers, questions);
+
   return (
     <>
       <NavTop />
-      <div className="p-4 pt-32">
-        {!showResult ? (
+      <div className="flex flex-col items-center p-4 pt-32">
+        {loading ? (
+          <p>Loading pertanyaan...</p>
+        ) : !showResult ? (
           <>
             <QuestionPage
               questions={currentQuestions}
