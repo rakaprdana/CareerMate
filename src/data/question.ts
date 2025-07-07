@@ -1,6 +1,6 @@
 import type { Question } from "../interfaces/interface";
 
-export const questions: Question[] = [
+/*export const questions: Question[] = [
   // Realistic (R)
   {
     id: 1,
@@ -398,31 +398,31 @@ export const questions: Question[] = [
     types: ["Conventional"],
   },
 ];
-
-// export const questions: Question[] = [
-//   {
-//     id: 1,
-//     text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
-//     types: ["Realistic"],
-//   },
-//   {
-//     id: 2,
-//     text: "Saya senang menyelidiki ide, mengamati, belajar, dan memecahkan masalah.",
-//     types: ["Investigative"],
-//   },
-//   {
-//     id: 3,
-//     text: "Saya menikmati kegiatan yang melibatkan seni, seperti menulis, menggambar, atau bermain musik.",
-//     types: ["Artistic"],
-//   },
-//   {
-//     id: 4,
-//     text: "Saya merasa puas saat membantu orang lain dan bekerja dalam tim.",
-//     types: ["Social"],
-//   },
-//   {
-//     id: 5,
-//     text: "Saya suka mengatur data, mengikuti prosedur, dan memastikan segala sesuatunya terorganisir dengan baik.",
-//     types: ["Conventional"],
-//   },
-// ];
+*/
+export const questions: Question[] = [
+  {
+    id: 1,
+    text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
+    types: ["Realistic"],
+  },
+  {
+    id: 2,
+    text: "Saya senang menyelidiki ide, mengamati, belajar, dan memecahkan masalah.",
+    types: ["Investigative"],
+  },
+  {
+    id: 3,
+    text: "Saya menikmati kegiatan yang melibatkan seni, seperti menulis, menggambar, atau bermain musik.",
+    types: ["Artistic"],
+  },
+  {
+    id: 4,
+    text: "Saya merasa puas saat membantu orang lain dan bekerja dalam tim.",
+    types: ["Social"],
+  },
+  {
+    id: 5,
+    text: "Saya suka mengatur data, mengikuti prosedur, dan memastikan segala sesuatunya terorganisir dengan baik.",
+    types: ["Conventional"],
+  },
+];
