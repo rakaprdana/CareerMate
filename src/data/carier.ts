@@ -2,7 +2,7 @@ import type { HollandType } from "../types/hollandcode";
 
 export const careerSuggestions: Record<HollandType, string[]> = {
   Realistic: [
-    "Teknisi Otomotif",
+    "Teknisi Komputer",
     "Operator Mesin",
     "Petugas Pemadam Kebakaran",
   ],
