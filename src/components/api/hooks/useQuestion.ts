@@ -1,7 +1,6 @@
-// hooks/useQuestions.ts
 import { useEffect, useState } from "react";
 import type { Question } from "../../../interfaces/interface";
-import { getQuestion } from "../api"; // pastikan path-nya benar
+import { getQuestion } from "../api";
 
 export function useQuestions() {
   const [questions, setQuestions] = useState<Question[]>([]);

@@ -6,7 +6,6 @@ export const calculateScores = (
   answers: Answer[],
   questions: Question[]
 ): Record<HollandType, number> => {
-  // Inisialisasi semua skor ke 0
   const scores: Record<HollandType, number> = {
     Realistic: 0,
     Investigative: 0,
@@ -16,15 +15,12 @@ export const calculateScores = (
     Conventional: 0,
   };
 
-  // Buat Map untuk lookup cepat
   const questionMap = new Map<number, Question>();
   questions.forEach((q) => questionMap.set(q.id, q));
 
-  // Proses setiap jawaban
   answers.forEach(({ questionId, confidence }) => {
     const question = questionMap.get(questionId);
 
-    // Validasi aman
     if (question && Array.isArray(question.types)) {
       question.types.forEach((type) => {
         scores[type as HollandType] += confidence;

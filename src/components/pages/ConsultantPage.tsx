@@ -3,9 +3,10 @@ import { QuestionPage } from "../pages/QuestionPage";
 import { ResultPage } from "../pages/ResultPage";
 import { calculateScores } from "../../utils/calculate";
 import type { Answer } from "../../interfaces/interface";
-import { NavigationButtons } from "../elements/navbar/navbottom";
 import { NavTop } from "../elements/navbar/navtop";
 import { useQuestions } from "../api/hooks/useQuestion";
+import { ProgressIndicator } from "../elements/progress-indicator";
+import { QuestionNavigation } from "../elements/navbar/question-nav";
 
 const QUESTIONS_PER_PAGE = 5;
 
@@ -23,26 +24,49 @@ export const ConsultantPage: React.FC = () => {
   );
 
   const handleAnswer = (questionId: number, confidence: number) => {
+    console.log("handleAnswer called:", questionId, confidence);
     setAnswers((prev) => {
       const filtered = prev.filter((a) => a.questionId !== questionId);
       return [...filtered, { questionId, confidence }];
     });
   };
 
-  const handleFinish = () => {
-    if (answers.length === questions.length) {
-      setShowResult(true);
-    } else {
-      alert("Mohon jawab semua pertanyaan terlebih dahulu.");
-    }
-  };
+  const isPageAnswered = (): boolean =>
+    currentQuestions.every((q) => answers.some((a) => a.questionId === q.id));
 
   const handleNext = () => {
+    if (!isPageAnswered()) {
+      alert("Mohon jawab semua pertanyaan di halaman ini sebelum lanjut.");
+      return;
+    }
     setCurrentPage((p) => p + 1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const scores = calculateScores(answers, questions);
+  const handleFinish = () => {
+    if (loading) {
+      alert("Pertanyaan masih dimuat.");
+      return;
+    }
+
+    const isAllAnswered = questions.every((q) =>
+      answers.some((a) => a.questionId === q.id)
+    );
+
+    if (!isAllAnswered) {
+      alert("Mohon jawab semua pertanyaan terlebih dahulu.");
+      return;
+    }
+
+    setShowResult(true);
+  };
+
+  const validQuestionIds = new Set(questions.map((q) => q.id));
+  const validAnswers = answers.filter((a) =>
+    validQuestionIds.has(a.questionId)
+  );
+  const scores = showResult ? calculateScores(validAnswers, questions) : null;
+  // console.log(scores);
 
   return (
     <>
@@ -52,12 +76,18 @@ export const ConsultantPage: React.FC = () => {
           <p>Loading pertanyaan...</p>
         ) : !showResult ? (
           <>
+            <ProgressIndicator
+              answeredCount={answers.length}
+              totalCount={questions.length}
+            />
+
             <QuestionPage
               questions={currentQuestions}
               answers={answers}
               onAnswer={handleAnswer}
             />
-            <NavigationButtons
+
+            <QuestionNavigation
               currentPage={currentPage}
               totalPages={totalPages}
               onNext={handleNext}
@@ -66,7 +96,7 @@ export const ConsultantPage: React.FC = () => {
             />
           </>
         ) : (
-          <ResultPage scores={scores} />
+          scores && <ResultPage scores={scores} />
         )}
       </div>
     </>

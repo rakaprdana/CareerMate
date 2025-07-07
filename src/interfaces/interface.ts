@@ -21,7 +21,6 @@ export interface Question {
 
 export interface Answer {
   questionId: number;
-  // agree: boolean;
   confidence: number;
 }
 
