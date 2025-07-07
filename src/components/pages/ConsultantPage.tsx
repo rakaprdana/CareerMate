@@ -6,6 +6,7 @@ import type { Answer } from "../../interfaces/interface";
 import { questions } from "../../data/question";
 import { NavigationButtons } from "../elements/navbar/navbottom";
 import { NavTop } from "../elements/navbar/navtop";
+import { ProgressIndicator } from "../elements/progress-indicator";
 
 const QUESTIONS_PER_PAGE = 5;
 
@@ -47,6 +48,11 @@ export const ConsultantPage: React.FC = () => {
       <div className="p-4 pt-32">
         {!showResult ? (
           <>
+            <ProgressIndicator
+              answeredCount={answers.length}
+              totalCount={questions.length}
+            />
+
             <QuestionPage
               questions={currentQuestions}
               answers={answers}
