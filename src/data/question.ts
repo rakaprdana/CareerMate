@@ -1,6 +1,6 @@
 import type { Question } from "../interfaces/interface";
 
-/*export const questions: Question[] = [
+export const questions: Question[] = [
   // Realistic (R)
   {
     id: 1,
@@ -398,8 +398,8 @@ import type { Question } from "../interfaces/interface";
     types: ["Conventional"],
   },
 ];
-*/
-export const questions: Question[] = [
+
+/*export const questions: Question[] = [
   {
     id: 1,
     text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
@@ -425,4 +425,4 @@ export const questions: Question[] = [
     text: "Saya suka mengatur data, mengikuti prosedur, dan memastikan segala sesuatunya terorganisir dengan baik.",
     types: ["Conventional"],
   },
-];
+];*/
