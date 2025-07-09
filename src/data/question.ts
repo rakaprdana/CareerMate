@@ -1,405 +1,320 @@
 import type { Question } from "../interfaces/interface";
 
-/*export const questions: Question[] = [
-  // Realistic (R)
+export const questions: Question[] = [
+  // Realistic
   {
     id: 1,
-    text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
     types: ["Realistic"],
+    text: "Saya suka memperbaiki atau merakit sesuatu secara langsung dengan tangan.",
   },
   {
     id: 2,
-    text: "Saya menikmati aktivitas luar ruangan seperti berkebun atau bertani.",
     types: ["Realistic"],
+    text: "Saya lebih suka pekerjaan yang memiliki hasil nyata dan langsung terlihat.",
   },
   {
     id: 3,
-    text: "Saya mahir dalam memperbaiki atau merakit sesuatu secara manual.",
     types: ["Realistic"],
+    text: "Saya tertarik pada pekerjaan yang melibatkan operasi mesin atau sistem teknis.",
   },
   {
     id: 4,
-    text: "Saya lebih suka pekerjaan fisik daripada pekerjaan kantoran.",
     types: ["Realistic"],
+    text: "Saya menikmati aktivitas yang membutuhkan kekuatan fisik atau kemampuan motorik yang baik.",
   },
   {
     id: 5,
-    text: "Saya tertarik pada pekerjaan teknis dan praktis.",
     types: ["Realistic"],
+    text: "Saya suka memecahkan masalah dengan menerapkan solusi praktis.",
   },
   {
     id: 6,
-    text: "Saya nyaman bekerja dengan hewan atau tumbuhan.",
     types: ["Realistic"],
+    text: "Saya lebih suka pekerjaan di lingkungan yang konkret dan terstruktur.",
   },
   {
     id: 7,
-    text: "Saya menikmati kegiatan seperti pertukangan atau perbaikan rumah.",
     types: ["Realistic"],
+    text: "Saya senang terlibat dalam proyek pembangunan atau konstruksi.",
   },
   {
     id: 8,
-    text: "Saya suka memecahkan masalah dengan menggunakan tangan.",
     types: ["Realistic"],
+    text: "Saya memiliki ketertarikan pada bidang teknik dan rekayasa.",
   },
   {
     id: 9,
-    text: "Saya senang bekerja di lingkungan yang membutuhkan kekuatan fisik.",
     types: ["Realistic"],
+    text: "Saya menghargai pekerjaan yang memungkinkan saya menggunakan keterampilan praktis.",
   },
   {
     id: 10,
-    text: "Saya menikmati kegiatan berbasis kerja lapangan.",
     types: ["Realistic"],
+    text: "Saya lebih suka belajar dengan melakukan (hands-on) daripada hanya membaca teori.",
   },
+
+  // Investigative
   {
     id: 11,
-    text: "Saya suka mengoperasikan alat berat atau kendaraan besar.",
-    types: ["Realistic"],
+    types: ["Investigative"],
+    text: "Saya senang menganalisis data dan informasi untuk menemukan pola atau solusi.",
   },
   {
     id: 12,
-    text: "Saya lebih suka bekerja sendiri daripada dalam tim.",
-    types: ["Realistic"],
+    types: ["Investigative"],
+    text: "Saya suka melakukan penelitian untuk memahami suatu topik secara mendalam.",
   },
   {
     id: 13,
-    text: "Saya suka pekerjaan yang memiliki hasil nyata dan langsung terlihat.",
-    types: ["Realistic"],
+    types: ["Investigative"],
+    text: "Saya tertarik pada teori dan konsep abstrak yang membutuhkan pemikiran kritis.",
   },
-
-  // Investigative (I)
   {
     id: 14,
-    text: "Saya suka menganalisis masalah dan mencari solusi logis.",
     types: ["Investigative"],
+    text: "Saya menikmati memecahkan masalah kompleks yang memerlukan penalaran logis.",
   },
   {
     id: 15,
-    text: "Saya tertarik dengan sains dan eksperimen.",
     types: ["Investigative"],
+    text: "Saya suka mengumpulkan dan mengevaluasi informasi secara sistematis.",
   },
   {
     id: 16,
-    text: "Saya senang membaca buku atau artikel ilmiah.",
     types: ["Investigative"],
+    text: "Saya memiliki rasa ingin tahu yang tinggi dan selalu ingin belajar hal baru.",
   },
   {
     id: 17,
-    text: "Saya suka memecahkan teka-teki atau soal logika.",
     types: ["Investigative"],
+    text: "Saya menikmati melakukan eksperimen atau penyelidikan ilmiah.",
   },
   {
     id: 18,
-    text: "Saya menikmati mengamati dan memahami bagaimana sesuatu bekerja.",
     types: ["Investigative"],
+    text: "Saya suka mencari kebenaran atau validasi melalui bukti dan logika.",
   },
   {
     id: 19,
-    text: "Saya lebih tertarik pada teori daripada praktik.",
     types: ["Investigative"],
+    text: "Saya tertarik pada bidang sains, penelitian, atau akademis.",
   },
   {
     id: 20,
-    text: "Saya senang melakukan riset atau penelitian.",
     types: ["Investigative"],
+    text: "Saya lebih suka bekerja secara mandiri untuk menganalisis dan memecahkan masalah.",
   },
+
+  // Artistic
   {
     id: 21,
-    text: "Saya suka mengembangkan ide-ide atau konsep baru.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya suka mengekspresikan diri melalui seni, musik, atau tulisan.",
   },
   {
     id: 22,
-    text: "Saya merasa nyaman bekerja dengan data atau angka.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya menikmati bekerja dengan ide-ide abstrak dan imajinatif.",
   },
   {
     id: 23,
-    text: "Saya memiliki rasa ingin tahu yang tinggi terhadap dunia.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya lebih suka pekerjaan yang tidak rutin dan memungkinkan kebebasan berekspresi.",
   },
   {
     id: 24,
-    text: "Saya senang bekerja di laboratorium atau lingkungan akademik.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya tertarik pada desain, estetika, dan visualisasi kreatif.",
   },
   {
     id: 25,
-    text: "Saya suka menguji hipotesis dan melihat hasilnya.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya cenderung inovatif dan suka mencari cara-cara baru dalam melakukan sesuatu.",
   },
   {
     id: 26,
-    text: "Saya tertarik pada teknologi dan perkembangannya.",
-    types: ["Investigative"],
+    types: ["Artistic"],
+    text: "Saya menikmati aktivitas yang melibatkan penggunaan imajinasi dan intuisi.",
   },
-
-  // Artistic (A)
   {
     id: 27,
-    text: "Saya senang mengekspresikan diri melalui seni.",
     types: ["Artistic"],
+    text: "Saya suka menginspirasi atau memengaruhi orang lain melalui karya kreatif saya.",
   },
   {
     id: 28,
-    text: "Saya suka menggambar, melukis, atau membuat karya kreatif.",
     types: ["Artistic"],
+    text: "Saya menghargai keindahan dan orisinalitas dalam seni dan budaya.",
   },
   {
     id: 29,
-    text: "Saya menikmati menulis puisi, cerita, atau lagu.",
     types: ["Artistic"],
+    text: "Saya merasa nyaman dalam lingkungan yang mendorong kebebasan dan eksperimen.",
   },
   {
     id: 30,
-    text: "Saya tertarik pada dunia desain dan estetika.",
     types: ["Artistic"],
+    text: "Saya suka mengeksplorasi berbagai bentuk seni dan ekspresi budaya.",
   },
+
+  // Social
   {
     id: 31,
-    text: "Saya merasa nyaman dalam lingkungan yang fleksibel dan tidak kaku.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya senang membantu orang lain mengatasi masalah pribadi atau sosial mereka.",
   },
   {
     id: 32,
-    text: "Saya suka tampil dalam pertunjukan seperti teater atau musik.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya suka mengajar atau melatih orang lain untuk mengembangkan potensi mereka.",
   },
   {
     id: 33,
-    text: "Saya lebih suka pekerjaan yang memberikan kebebasan berkreasi.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya menikmati bekerja sama dalam tim untuk mencapai tujuan bersama.",
   },
   {
     id: 34,
-    text: "Saya senang menciptakan sesuatu yang orisinal.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya adalah pendengar yang baik dan suka memahami perspektif orang lain.",
   },
   {
     id: 35,
-    text: "Saya tertarik pada mode, arsitektur, atau seni visual.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya tertarik pada profesi yang melibatkan layanan atau perawatan sosial.",
   },
   {
     id: 36,
-    text: "Saya cenderung berpikir secara imajinatif dan abstrak.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya suka memberikan saran atau bimbingan kepada orang yang membutuhkan.",
   },
   {
     id: 37,
-    text: "Saya suka menggabungkan warna, bentuk, dan ide secara unik.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya memiliki empati yang kuat dan peduli terhadap perasaan orang lain.",
   },
   {
     id: 38,
-    text: "Saya merasa puas ketika menghasilkan karya seni.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya menikmati berinteraksi dengan berbagai jenis orang dan membangun hubungan.",
   },
   {
     id: 39,
-    text: "Saya menikmati bekerja di lingkungan yang bebas dan tidak terstruktur.",
-    types: ["Artistic"],
+    types: ["Social"],
+    text: "Saya merasa puas ketika melihat dampak positif dari bantuan saya kepada orang lain.",
   },
-
-  // Social (S)
   {
     id: 40,
-    text: "Saya senang membantu orang lain memecahkan masalah mereka.",
     types: ["Social"],
+    text: "Saya tertarik pada pengembangan masyarakat atau advokasi sosial.",
   },
+
+  // Enterprising
   {
     id: 41,
-    text: "Saya menikmati mengajar atau membimbing orang lain.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya suka memimpin dan mengambil inisiatif dalam suatu proyek atau kelompok.",
   },
   {
     id: 42,
-    text: "Saya merasa puas ketika saya bisa membuat orang lain merasa lebih baik.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya tertarik pada kegiatan yang melibatkan penjualan, persuasi, atau negosiasi.",
   },
   {
     id: 43,
-    text: "Saya senang bekerja dalam tim dan berkolaborasi.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya memiliki ambisi tinggi dan berorientasi pada pencapaian tujuan.",
   },
   {
     id: 44,
-    text: "Saya suka mendengarkan cerita dan pengalaman orang lain.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya menikmati memengaruhi atau meyakinkan orang lain terhadap ide-ide saya.",
   },
   {
     id: 45,
-    text: "Saya tertarik pada bidang pendidikan dan pengembangan manusia.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya tidak takut mengambil risiko untuk mencapai kesuksesan yang lebih besar.",
   },
   {
     id: 46,
-    text: "Saya merasa nyaman dalam situasi sosial dan berinteraksi dengan banyak orang.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya suka mengelola orang atau proyek untuk mencapai hasil yang efektif.",
   },
   {
     id: 47,
-    text: "Saya ingin berkontribusi untuk kebaikan masyarakat.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya adalah orang yang energik, antusias, dan percaya diri.",
   },
   {
     id: 48,
-    text: "Saya suka menjadi sukarelawan dalam kegiatan sosial.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya menikmati lingkungan yang kompetitif dan berorientasi pada hasil.",
   },
   {
     id: 49,
-    text: "Saya menikmati memberikan nasihat atau dukungan emosional.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya tertarik pada peluang kewirausahaan atau memulai bisnis sendiri.",
   },
   {
     id: 50,
-    text: "Saya senang menginspirasi dan memotivasi orang lain.",
-    types: ["Social"],
+    types: ["Enterprising"],
+    text: "Saya suka membangun jaringan dan bersosialisasi untuk keuntungan profesional.",
   },
+
+  // Conventional
   {
     id: 51,
-    text: "Saya lebih suka membantu orang daripada bekerja dengan benda atau data.",
-    types: ["Social"],
+    types: ["Conventional"],
+    text: "Saya suka bekerja dengan data, angka, dan detail yang akurat.",
   },
   {
     id: 52,
-    text: "Saya tertarik menjadi guru, konselor, atau pekerja sosial.",
-    types: ["Social"],
+    types: ["Conventional"],
+    text: "Saya menikmati tugas yang terstruktur, teratur, dan sesuai prosedur.",
   },
-
-  // Enterprising (E)
   {
     id: 53,
-    text: "Saya tertarik untuk memimpin dan mengatur orang lain.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya teliti dan hati-hati dalam menyelesaikan pekerjaan.",
   },
   {
     id: 54,
-    text: "Saya suka mengambil keputusan dan bertanggung jawab.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya suka mengorganisir informasi dan sistem secara efisien.",
   },
   {
     id: 55,
-    text: "Saya menikmati aktivitas yang melibatkan persuasi atau negosiasi.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya menikmati mengikuti aturan dan prosedur yang telah ditetapkan.",
   },
   {
     id: 56,
-    text: "Saya merasa nyaman berbicara di depan umum.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya memiliki kemampuan administrasi dan pengarsipan yang baik.",
   },
   {
     id: 57,
-    text: "Saya tertarik pada dunia bisnis dan kewirausahaan.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya nyaman dengan pekerjaan yang memerlukan konsistensi dan presisi.",
   },
   {
     id: 58,
-    text: "Saya memiliki semangat kompetitif dan suka tantangan.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya menghargai kejelasan dan standar yang tinggi dalam setiap tugas.",
   },
   {
     id: 59,
-    text: "Saya percaya diri dalam menjual ide atau produk.",
-    types: ["Enterprising"],
+    types: ["Conventional"],
+    text: "Saya suka memastikan segala sesuatu berada di tempatnya dan tertata rapi.",
   },
   {
     id: 60,
-    text: "Saya suka merancang strategi dan membuat rencana jangka panjang.",
-    types: ["Enterprising"],
-  },
-  {
-    id: 61,
-    text: "Saya tertarik menjadi pengusaha atau manajer.",
-    types: ["Enterprising"],
-  },
-  {
-    id: 62,
-    text: "Saya senang berorganisasi dan mempengaruhi keputusan orang lain.",
-    types: ["Enterprising"],
-  },
-  {
-    id: 63,
-    text: "Saya menikmati pekerjaan yang dinamis dan penuh variasi.",
-    types: ["Enterprising"],
-  },
-  {
-    id: 64,
-    text: "Saya tertarik pada politik atau kepemimpinan publik.",
-    types: ["Enterprising"],
-  },
-  {
-    id: 65,
-    text: "Saya percaya bahwa saya bisa memimpin tim menuju kesuksesan.",
-    types: ["Enterprising"],
-  },
-
-  // Conventional (C)
-  {
-    id: 66,
-    text: "Saya menikmati pekerjaan yang melibatkan data, angka, atau pengarsipan.",
     types: ["Conventional"],
-  },
-  {
-    id: 67,
-    text: "Saya suka menjaga ketertiban dan keteraturan dalam pekerjaan.",
-    types: ["Conventional"],
-  },
-  {
-    id: 68,
-    text: "Saya tertarik pada pekerjaan administratif dan kantor.",
-    types: ["Conventional"],
-  },
-  {
-    id: 69,
-    text: "Saya merasa nyaman mengikuti aturan dan prosedur yang jelas.",
-    types: ["Conventional"],
-  },
-  {
-    id: 70,
-    text: "Saya teliti dan memperhatikan detail kecil.",
-    types: ["Conventional"],
-  },
-  {
-    id: 71,
-    text: "Saya senang membuat dan mengelola jadwal.",
-    types: ["Conventional"],
-  },
-  {
-    id: 72,
-    text: "Saya tertarik pada akuntansi, pembukuan, atau statistik.",
-    types: ["Conventional"],
-  },
-  {
-    id: 73,
-    text: "Saya merasa puas ketika menyelesaikan tugas dengan tepat waktu.",
-    types: ["Conventional"],
-  },
-  {
-    id: 74,
-    text: "Saya suka bekerja dalam sistem yang terorganisir.",
-    types: ["Conventional"],
-  },
-  {
-    id: 75,
-    text: "Saya senang bekerja di belakang layar untuk mendukung operasional.",
-    types: ["Conventional"],
-  },
-  {
-    id: 76,
-    text: "Saya lebih suka instruksi yang jelas dan pekerjaan yang terstruktur.",
-    types: ["Conventional"],
-  },
-  {
-    id: 77,
-    text: "Saya merasa nyaman melakukan pekerjaan rutin yang berulang.",
-    types: ["Conventional"],
+    text: "Saya efisien dalam mengelola waktu dan sumber daya.",
   },
 ];
-*/
-export const questions: Question[] = [
+
+/*export const questions: Question[] = [
   {
     id: 1,
     text: "Saya suka bekerja dengan alat, mesin, atau kendaraan.",
@@ -425,4 +340,4 @@ export const questions: Question[] = [
     text: "Saya suka mengatur data, mengikuti prosedur, dan memastikan segala sesuatunya terorganisir dengan baik.",
     types: ["Conventional"],
   },
-];
+];*/
