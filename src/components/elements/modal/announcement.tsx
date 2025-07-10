@@ -14,7 +14,7 @@ export const AnnouncementModal = ({ onClose }: AnnouncementProps) => {
         <h1 className="text-xl font-bold mb-4">Harap dibaca</h1>
         <p className="text-gray-700">
           Sebelum memulai, harap dijawab dengan jujur dan sesuai dengan diri
-          Anda. Terdapat 77 pertanyaan yang dirancang untuk memahami kepribadian
+          Anda. Terdapat 60 pertanyaan yang dirancang untuk memahami kepribadian
           dan minat Anda secara akurat.
         </p>
         <Button onClick={onClose} to="/room">
